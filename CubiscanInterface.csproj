@@ -109,7 +109,6 @@
   <ItemGroup>
     <Compile Include="DBHelpers\DBConnection.cs" />
     <Compile Include="DBHelpers\HPBInterface.cs" />
-    <Compile Include="DBHelpers\HPBWorkBench.cs" />
     <Compile Include="Models\ErrorLogParams.cs" />
     <Compile Include="Models\ItemMeasurements.cs" />
     <Compile Include="Models\Items.cs" />
