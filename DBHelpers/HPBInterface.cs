@@ -515,7 +515,7 @@ namespace CubiscanInterface.DBHelpers
             scaleSEQ.Add("EA");
             scaleSEQ.Add("IP");
             scaleSEQ.Add("DP");
-            scaleSEQ.Add("TO");
+            scaleSEQ.Add("Tote");
             scaleSEQ.Add("CS");
             scaleSEQ.Add("PL");
 
