@@ -1128,7 +1128,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.ExecuteScalarAsync``1(System.Data.IDbConnection,Dapper.CommandDefinition)">
             <summary>
-            Execute parameterized SQL that selects a single value
+            Execute parameterized SQL that selects a single value.
             </summary>
             <typeparam name="T">The type to return.</typeparam>
             <param name="cnn">The connection to execute on.</param>

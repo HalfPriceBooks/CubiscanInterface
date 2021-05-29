@@ -16,6 +16,7 @@ C:\Blanco\Repos\CubiscanInterface\bin\Debug\System.Configuration.ConfigurationMa
 C:\Blanco\Repos\CubiscanInterface\bin\Debug\System.Security.AccessControl.xml
 C:\Blanco\Repos\CubiscanInterface\bin\Debug\System.Security.Permissions.xml
 C:\Blanco\Repos\CubiscanInterface\bin\Debug\System.Security.Principal.Windows.xml
+C:\Blanco\Repos\CubiscanInterface\obj\Debug\CubiscanInterface.csproj.CoreCompileInputs.cache
 C:\Blanco\Repos\CubiscanInterface\obj\Debug\CubiscanInterface.exe.manifest
 C:\Blanco\Repos\CubiscanInterface\obj\Debug\CubiscanInterface.application
 C:\Blanco\Repos\CubiscanInterface\obj\Debug\CubiscanInterface.csproj.CopyComplete

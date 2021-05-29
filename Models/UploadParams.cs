@@ -13,6 +13,10 @@ namespace CubiscanInterface.Models
         public string USER_DEF1 { get; set; }
         public string USER_DEF2 { get; set; }
         public string USER_DEF3 { get; set; }
+        public int CASEQTY { get; set; }
+        public string CONTAINER { get; set; }
+        public int DAIRYPACK { get; set; }
+        public int TOTE { get; set; }
         public string USER_DEF4 { get; set; }
         public string USER_DEF5 { get; set; }
         public string USER_DEF6 { get; set; }
@@ -25,8 +29,6 @@ namespace CubiscanInterface.Models
         public decimal USER_DEF7 { get; set; }
         public decimal USER_DEF8 { get; set; }
         public string FACTOR { get; set; }
-        public int CASEQTY { get; set; }
-        public string CONTAINER { get; set; }
 
     }
 }

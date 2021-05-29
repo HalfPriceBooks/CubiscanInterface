@@ -77,14 +77,96 @@ namespace CubiscanInterface.DBHelpers
                 param.Add("@FACTOR", _uploadParams.FACTOR);
                 param.Add("@CASEQTY", _uploadParams.CASEQTY);
                 param.Add("@USER_DEF1", _uploadParams.USER_DEF1);
-                param.Add("@USER_DEF2", _uploadParams.USER_DEF2);
-                param.Add("@USER_DEF3", _uploadParams.USER_DEF3);
+                param.Add("@USER_DEF2", _uploadParams.DAIRYPACK);
+                param.Add("@USER_DEF3", _uploadParams.TOTE);
                 param.Add("@USER_DEF4", _uploadParams.USER_DEF4);
                 param.Add("@USER_DEF5", _uploadParams.USER_DEF5);
                 param.Add("@USER_DEF6", _uploadParams.USER_DEF6);
                 param.Add("@USER_DEF7", _uploadParams.USER_DEF7);
                 param.Add("@USER_DEF8", _uploadParams.USER_DEF8);
                 param.Add("@CONTAINER", _uploadParams.CONTAINER);
+                param.Add("@DAIRYPACK", _uploadParams.DAIRYPACK);
+                param.Add("@TOTE", _uploadParams.TOTE);
+
+
+                using (IDbConnection Conn = new SqlConnection(stringConn))
+                {
+                    var _id = Conn.Query<int>("CUBISCAN_UPLOAD_DIMENSIONS", param, null, true, null, CommandType.StoredProcedure);
+                    _res = _id.FirstOrDefault();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogParams exparams = new ErrorLogParams();
+                exparams.ITEM = xItem.ToString();
+                exparams.DESCRIPTION = ex.Message.ToString();
+                Update_ErrLog(exparams);
+            }
+            finally
+            {
+
+            }
+
+            return _res;
+        }
+
+        public int Upload_Dimensions_ALT(UploadParams _uploadParams, string _mode)
+        {
+            int _res = 0;
+            string xItem = "";
+
+            _uploadParams.CONTAINER = _mode;
+            if (_mode == "DAIRYPACK")
+            {
+                _uploadParams.LENGTH = 19.5M;
+                _uploadParams.WIDTH = 12.5M;
+                _uploadParams.HEIGHT = 9.0M;
+                _uploadParams.QUANTITY_UM = "DP";
+                _uploadParams.CONTAINER = "DP";
+                _uploadParams.CASEQTY = _uploadParams.DAIRYPACK;
+                _uploadParams.WEIGHT = (_uploadParams.WEIGHT * _uploadParams.DAIRYPACK);
+            }
+            else if (_mode == "Tote")
+            {
+                _uploadParams.LENGTH = 13.9M;
+                _uploadParams.WIDTH = 20.75M;
+                _uploadParams.HEIGHT = 12.45M;
+                _uploadParams.QUANTITY_UM = "Tote";
+                _uploadParams.CONTAINER = "Tote";
+                _uploadParams.CASEQTY = _uploadParams.TOTE;
+                _uploadParams.WEIGHT = (_uploadParams.WEIGHT * _uploadParams.TOTE);
+            }
+
+            try
+            {
+                DynamicParameters param = new DynamicParameters();
+                xItem = _uploadParams.ITEM;
+                param.Add("@ITEM", xItem);
+                param.Add("@QUANTITY_UM", _uploadParams.QUANTITY_UM);
+                param.Add("@COMPANY", _uploadParams.COMPANY);
+                param.Add("@LENGTH", _uploadParams.LENGTH);
+                param.Add("@WIDTH", _uploadParams.WIDTH);
+                param.Add("@HEIGHT", _uploadParams.HEIGHT);
+                param.Add("@DIMENSION_UM", _uploadParams.DIMENSION_UM);
+                param.Add("@DIM_WEIGHT", _uploadParams.DIM_WEIGHT);
+                param.Add("@VOLUME", _uploadParams.VOLUME);
+                param.Add("@VOLUME_UM", _uploadParams.VOLUME_UM);
+                param.Add("@WEIGHT", _uploadParams.WEIGHT);
+                param.Add("@WEIGHT_UM", _uploadParams.WEIGHT_UM);
+                param.Add("@FACTOR", _uploadParams.FACTOR);
+                param.Add("@CASEQTY", _uploadParams.CASEQTY);
+                param.Add("@USER_DEF1", _uploadParams.USER_DEF1);
+                param.Add("@USER_DEF2", _uploadParams.DAIRYPACK);
+                param.Add("@USER_DEF3", _uploadParams.TOTE);
+                param.Add("@USER_DEF4", _uploadParams.USER_DEF4);
+                param.Add("@USER_DEF5", _uploadParams.USER_DEF5);
+                param.Add("@USER_DEF6", _uploadParams.USER_DEF6);
+                param.Add("@USER_DEF7", _uploadParams.USER_DEF7);
+                param.Add("@USER_DEF8", _uploadParams.USER_DEF8);
+                param.Add("@CONTAINER", _uploadParams.CONTAINER);
+                param.Add("@DAIRYPACK", _uploadParams.DAIRYPACK);
+                param.Add("@TOTE", _uploadParams.TOTE);
 
                 using (IDbConnection Conn = new SqlConnection(stringConn))
                 {
@@ -278,6 +360,7 @@ namespace CubiscanInterface.DBHelpers
 
         public bool PrepFile(string FilePath)
         {
+            string _DPorTOTE = "NONE";
             bool _res = false;
             string xItem = "";
             string xType = "EA";
@@ -323,8 +406,29 @@ namespace CubiscanInterface.DBHelpers
                             }
                             _upParms.QUANTITY_UM = xType;
                             _upParms.USER_DEF1 = "";
-                            _upParms.USER_DEF2 = values[16];
-                            _upParms.USER_DEF3 = values[17];
+                            _upParms.USER_DEF2 = "";
+                            _upParms.USER_DEF3 = "";
+
+                            if (!string.IsNullOrEmpty(values[16].ToString()))
+                            {
+                                _upParms.DAIRYPACK = Convert.ToInt32(values[16].ToString());
+                                _DPorTOTE = "DAIRYPACK";
+                            }
+                            else
+                            {
+                                _upParms.DAIRYPACK = 0;
+                            }
+
+                            if (!string.IsNullOrEmpty(values[17].ToString()))
+                            {
+                                _upParms.TOTE = Convert.ToInt32(values[17].ToString());
+                                _DPorTOTE = "Tote"; 
+                            }
+                            else
+                            {
+                                _upParms.TOTE = 0;
+                            }
+                                                        
                             _upParms.USER_DEF4 = values[18];
                             _upParms.USER_DEF5 = values[19];
                             _upParms.USER_DEF6 = values[20];
@@ -332,7 +436,16 @@ namespace CubiscanInterface.DBHelpers
                             else { _upParms.USER_DEF7 = Convert.ToDecimal(values[21].ToString()); }
                             _upParms.USER_DEF8 = Convert.ToDecimal(values[22].ToString());
                             _upParms.CONTAINER = xType;
+
                             Upload_Dimensions(_upParms);
+                            if (_DPorTOTE == "DAIRYPACK")
+                            {
+                                Upload_Dimensions_ALT(_upParms, _DPorTOTE);
+                            }
+                            else if (_DPorTOTE == "Tote")
+                            {
+                                Upload_Dimensions_ALT(_upParms, _DPorTOTE);
+                            }
                             _res = true;
                         }
                     }
@@ -349,7 +462,7 @@ namespace CubiscanInterface.DBHelpers
             }
             return _res;
         }
-
+        
         public string GetContainerType(string item, string FileName)
         {
             string _conttype = "EA";

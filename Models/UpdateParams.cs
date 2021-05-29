@@ -11,6 +11,8 @@ namespace CubiscanInterface.Models
         public string ITEM { get; set; }
         public string CONTAINER { get; set; }
         public int CASEQTY { get; set; }
+        public int DAIRYPACK { get; set; }
+        public int TOTE { get; set; }
         public decimal LENGTH { get; set; }
         public decimal WIDTH { get; set; }
         public decimal HEIGHT { get; set; }

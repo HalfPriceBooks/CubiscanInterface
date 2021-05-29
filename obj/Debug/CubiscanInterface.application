@@ -14,14 +14,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="CubiscanInterface.exe.manifest" size="8380">
+    <dependentAssembly dependencyType="install" codebase="CubiscanInterface.exe.manifest" size="8382">
       <assemblyIdentity name="CubiscanInterface.exe" version="1.0.0.8" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>isjAREsB/jnQTP1Pw9pxiYIXvxulSpcgB9CBpEyQLNo=</dsig:DigestValue>
+        <dsig:DigestValue>NxIm/naEDVO2Jm46Z03aItI+AyJreI13k4kRkIybcdw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
