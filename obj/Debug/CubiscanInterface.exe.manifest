@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="CubiscanInterface.exe" version="1.0.0.8" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="CubiscanInterface" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="CubiscanInterface" version="1.0.0.0" publicKeyToken="B0E499BF0F3CCFD0" language="neutral" processorArchitecture="msil" />
     <commandLine file="CubiscanInterface.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -15,14 +15,14 @@
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!--
           UAC Manifest Options
-          If you want to change the Windows User Account Control level replace the 
+          If you want to change the Windows User Account Control level replace the
           requestedExecutionLevel node with one of the following.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         If you want to utilize File and Registry Virtualization for backward 
+         If you want to utilize File and Registry Virtualization for backward
          compatibility then delete the requestedExecutionLevel node.
     -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
@@ -42,26 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CubiscanInterface.exe" size="28096">
-      <assemblyIdentity name="CubiscanInterface" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CubiscanInterface.exe" size="28608">
+      <assemblyIdentity name="CubiscanInterface" version="1.0.0.0" publicKeyToken="B0E499BF0F3CCFD0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ve0YUTSJsDJTzIHLAJA1DNDVU0Hgy18tPAUhvg6sFPU=</dsig:DigestValue>
+        <dsig:DigestValue>Ie8H/VVT7dIEaiXLO5VOYXOk1Z1/J9mvoTduSc5x5a0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Dapper.dll" size="192512">
-      <assemblyIdentity name="Dapper" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Dapper.StrongName.dll" size="196608">
+      <assemblyIdentity name="Dapper.StrongName" version="2.0.0.0" publicKeyToken="E3E8412083D25DD3" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>G4pmLQvEFCHhjO1JKQdgogtE4rWT8bSVWLwxhTLQ0gg=</dsig:DigestValue>
+        <dsig:DigestValue>bXX130M3tRncQJddgkjB7Sb/3EBQtA4vNUyuCDatLcI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -137,13 +137,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CubiscanInterface.exe.config" size="1962">
+  <file name="CubiscanInterface.exe.config" size="1963">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>q4cbogEkEcoC+CRrBscTUTVJY0yWjFyJKJr2bEMK+XU=</dsig:DigestValue>
+      <dsig:DigestValue>598l+63kyBiaEMT2pAIpS5WQQDHBUBS95LWL8zsuB7c=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

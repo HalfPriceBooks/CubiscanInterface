@@ -51,11 +51,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>1969389A3AEE72A1060C782F70149B0750D775D9</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>55B4B3880AFFC601596F813E16837BD24668F42C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>CubiscanInterface_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -64,14 +63,17 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>CubiscanInterface_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>CubiscanInterfaceKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CubiscanInterface.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    <Reference Include="Dapper.StrongName, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e3e8412083d25dd3, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.StrongName.2.0.123\lib\net461\Dapper.StrongName.dll</HintPath>
     </Reference>
     <Reference Include="OfficeOpenXml.Core.ExcelPackage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\OfficeOpenXml.Core.ExcelPackage.1.0.0\lib\net46\OfficeOpenXml.Core.ExcelPackage.dll</HintPath>
@@ -131,7 +133,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="CubiscanInterface_TemporaryKey.pfx" />
+    <None Include="CubiscanInterfaceKey.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

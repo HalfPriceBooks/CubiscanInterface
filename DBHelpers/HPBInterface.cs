@@ -437,7 +437,7 @@ namespace CubiscanInterface.DBHelpers
                             _upParms.USER_DEF8 = Convert.ToDecimal(values[22].ToString());
                             _upParms.CONTAINER = xType;
 
-                            Upload_Dimensions(_upParms);
+                            Upload_Dimensions(_upParms); 
                             if (_DPorTOTE == "DAIRYPACK")
                             {
                                 Upload_Dimensions_ALT(_upParms, _DPorTOTE);
@@ -660,6 +660,32 @@ namespace CubiscanInterface.DBHelpers
                 {
                     // CLOSE ITEMS
                     Conn.Query<int>("CUBISCAN_CLOSE_ITEMS", CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLogParams exparams = new ErrorLogParams();
+                exparams.ITEM = Item;
+                exparams.DESCRIPTION = ex.Message.ToString();
+                exparams.FILE_NAME = "N/A";
+                Update_ErrLog(exparams);
+            }
+            finally
+            {
+
+            }
+        }
+
+        public void RunIngramData()
+        {
+            string Item = "";
+
+            try
+            {
+                using (IDbConnection Conn = new SqlConnection(stringConn))
+                {
+                    // GET NEWER ITEMS OUT OF INGRAM DATA
+                    Conn.Query<int>("CUBISCAN_GET_INGRAM_DATA", CommandType.StoredProcedure);
                 }
             }
             catch (Exception ex)

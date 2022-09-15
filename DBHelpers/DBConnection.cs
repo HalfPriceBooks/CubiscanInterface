@@ -3,7 +3,7 @@ using System.Configuration;
 
 namespace CubiscanInterface.DBHelpers
 {
-        public class DBConnection : IDisposable
+         public class DBConnection : IDisposable
         {
             #region "Dispose Logic"
             private bool disposed = false;
